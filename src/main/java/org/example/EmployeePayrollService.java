@@ -45,6 +45,27 @@ public class EmployeePayrollService {
             }
         }
 
+    }
+
+    public void fileOperations(String directoryPath) throws IOException {
+        String file_Path = "filetocheck.txt";
+        createFile("filetocheck.txt");
+         File file = new File(file_Path);
+         System.out.println("File Exists: " +file.exists());
+
+         // Delete file and check existence
+        if (file.exists()) {
+            file.delete();
+            System.out.println("File deleted.");
+        }
+        System.out.println("File exists after deletion: " + file.exists());
+
+        //list files in directory
+        File directory = new File(directoryPath);
+        System.out.println("Listing files and directories:");
+        for (String name : directory.list()) {
+            System.out.println(name);
+        }
 
     }
 }

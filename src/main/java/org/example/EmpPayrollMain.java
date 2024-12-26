@@ -29,7 +29,9 @@ public class EmpPayrollMain
 
         //Method to read from file to console
         employeePayrollService.readEmployeePayrollFromFile(FILE_PATH);
-
+        String directoryPath = "Employee";
+        employeePayrollService.createDirectory(directoryPath);
+        employeePayrollService.fileOperations(directoryPath);
 
 
     }
