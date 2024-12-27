@@ -1,6 +1,7 @@
 package org.example;
 
 import java.io.*;
+import java.nio.file.*;
 import java.util.List;
 
 public class EmployeePayrollService {
@@ -65,6 +66,36 @@ public class EmployeePayrollService {
         System.out.println("Listing files and directories:");
         for (String name : directory.list()) {
             System.out.println(name);
+        }
+
+    }
+
+    public int countEntriesInFile(String file_Path) throws FileNotFoundException , IOException {
+        int count = 0;
+
+        try(BufferedReader bufferedReader = new BufferedReader(new FileReader(file_Path))){
+            while (bufferedReader.readLine() != null){
+                count++;
+            }
+        }
+        return  count;
+    }
+
+    public void watchServiceToMonitorDirectory(String path) throws IOException, InterruptedException {
+        WatchService watchService = FileSystems.getDefault().newWatchService();
+        Path directoryPath = Paths.get(path);
+        directoryPath.register(watchService,StandardWatchEventKinds.ENTRY_CREATE,StandardWatchEventKinds.ENTRY_DELETE, StandardWatchEventKinds.ENTRY_MODIFY);
+
+        System.out.println("Monitor directory Path For Changes: ");
+
+        while (true) {
+            WatchKey key = watchService.take();
+            for(WatchEvent<?> event : key.pollEvents()){
+                System.out.println("Event Kind " +event.kind() + "File affected " + event.context());
+            }
+            if(!key.reset()){
+                break;
+            }
         }
 
     }
