@@ -70,15 +70,16 @@ public class EmployeePayrollService {
 
     }
 
-    public int countEntriesInFile(String file_Path) throws FileNotFoundException , IOException {
+    public void countEntriesInFile(String file_Path) throws FileNotFoundException , IOException {
         int count = 0;
-
         try(BufferedReader bufferedReader = new BufferedReader(new FileReader(file_Path))){
-            while (bufferedReader.readLine() != null){
+            String line;
+            while ((line = bufferedReader.readLine()) != null){
+                System.out.println(line);
                 count++;
             }
         }
-        return  count;
+        System.out.println("Number of entries in file :" + count);
     }
 
     public void watchServiceToMonitorDirectory(String path) throws IOException, InterruptedException {
@@ -107,6 +108,7 @@ public class EmployeePayrollService {
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
             }
+
         }
     }
 

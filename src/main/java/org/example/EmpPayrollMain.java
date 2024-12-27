@@ -37,9 +37,11 @@ public class EmpPayrollMain
         String directoryPath = "Employee";
         employeePayrollService.createDirectory(directoryPath);
         employeePayrollService.fileOperations(directoryPath);
-        System.out.println( "Count of Entries int file: " +employeePayrollService.countEntriesInFile(FILE_PATH));
+       // System.out.println( "Count of Entries int file: " +employeePayrollService.countEntriesInFile(FILE_PATH));
         employeePayrollService.printEmployeePayrollFile(FILE_PATH);
+        employeePayrollService.countEntriesInFile(FILE_PATH);
         employeePayrollService.watchServiceToMonitorDirectory(DIRECTORY_PATH);
+
 
 
     }
