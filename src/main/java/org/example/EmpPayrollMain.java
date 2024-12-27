@@ -7,7 +7,9 @@ import java.util.List;
 
 public class EmpPayrollMain
 {
+
     public static void main( String[] args ) throws IOException, InterruptedException {
+
         System.out.println( "Welcome to Employee Payroll service" );
 
          final String DIRECTORY_PATH = "EmployeePayroll";
@@ -37,6 +39,6 @@ public class EmpPayrollMain
         System.out.println( "Count of Entries int file: " +employeePayrollService.countEntriesInFile(FILE_PATH));
        employeePayrollService.watchServiceToMonitorDirectory(DIRECTORY_PATH);
 
-
     }
+
 }

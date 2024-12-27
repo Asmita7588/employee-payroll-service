@@ -11,6 +11,10 @@ public class Employee {
         this.salary = salary;
     }
 
+    public Employee() {
+
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -19,4 +23,5 @@ public class Employee {
                 ", salary=" + salary +
                 '}';
     }
+
 }

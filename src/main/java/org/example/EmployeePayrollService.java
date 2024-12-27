@@ -2,6 +2,7 @@ package org.example;
 
 import java.io.*;
 import java.nio.file.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeePayrollService {
@@ -37,15 +38,14 @@ public class EmployeePayrollService {
         System.out.println("Employee Payroll written on file.");
     }
 
-    public void readEmployeePayrollFromFile(String file_Path) throws IOException ,InterruptedIOException{
+    public void readEmployeePayrollFromFile(String file_Path) throws IOException {
         try(BufferedReader reader = new BufferedReader(new FileReader(file_Path))){
             System.out.println("Employee Payroll Data: ");
             String line;
             while ((line = reader.readLine()) != null){
-                System.out.println(line);
+               System.out.println(line);
             }
         }
-
     }
 
     public void fileOperations(String directoryPath) throws IOException {
@@ -99,4 +99,5 @@ public class EmployeePayrollService {
         }
 
     }
+
 }
