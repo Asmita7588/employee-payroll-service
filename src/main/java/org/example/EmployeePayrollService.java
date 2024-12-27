@@ -100,4 +100,14 @@ public class EmployeePayrollService {
 
     }
 
+    public void printEmployeePayrollFile(String file_Path) throws IOException {
+        System.out.println("\nEmployee Payroll File Contents:");
+        try (BufferedReader reader = new BufferedReader(new FileReader(file_Path))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        }
+    }
+
 }

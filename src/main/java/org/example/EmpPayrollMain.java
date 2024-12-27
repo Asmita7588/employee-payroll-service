@@ -26,6 +26,7 @@ public class EmpPayrollMain
         employeeList.add(new Employee(3, "Ankita",40000));
         employeeList.add(new Employee(4, "Akshita",38000));
         employeeList.add(new Employee(5, "Pranay",38000));
+        employeeList.add(new Employee(6,"Asmitaaa",234783));
 
 
         // Method to read From file
@@ -37,7 +38,9 @@ public class EmpPayrollMain
         employeePayrollService.createDirectory(directoryPath);
         employeePayrollService.fileOperations(directoryPath);
         System.out.println( "Count of Entries int file: " +employeePayrollService.countEntriesInFile(FILE_PATH));
-       employeePayrollService.watchServiceToMonitorDirectory(DIRECTORY_PATH);
+        employeePayrollService.printEmployeePayrollFile(FILE_PATH);
+        employeePayrollService.watchServiceToMonitorDirectory(DIRECTORY_PATH);
+
 
     }
 
